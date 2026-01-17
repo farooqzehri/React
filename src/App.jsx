@@ -30,8 +30,8 @@ function App(){
   const [title , settitle] = useState('')
   const [discription , setdiscription] = useState('')
   const [todo , settodos] = useState ([])
-  const addtodo = (flex) => {
-    flex.preventDefault();
+  const addtodo = (event) => {
+    event.preventDefault();
     console.log(title);
     console.log(discription);
     
@@ -41,14 +41,39 @@ function App(){
     setdiscription('')
     settitle('')
   }
+  const edittodo = (index) => {
+    const newtitle = prompt("Enter the new title")
+    todo[index].title = newtitle
+    settodos([...todo])
+  }
   return (
-    <div>
+   <>
+   <h1>Todo List</h1>
       <form onSubmit={addtodo}>
       <input type="text" value={title} onChange={(e) => settitle(e.target.value)} placeholder="Enter the title" />
       <input type="text" onChange={(e) => setdiscription(e.target.value)} value={discription} placeholder="Enter the discription" />
       <button>add Todo</button>        
       </form>
-    </div>
+      <div>
+        {todo.length > 0 ? todo.map((item , index) => {
+          return (
+            <div key={index} style={{border : '1px solid black' , margin : '10px' , padding : '10px'}}>
+              <h2>{item.title}</h2>
+              <p>{item.discription}</p>
+              <button onClick={() => {
+                const newtodos = todo.filter((todoitem , idx) => idx !== index)
+                settodos(newtodos)
+              }}>Delete</button>
+              <button onClick={() => edittodo(index)}>edit</button>
+
+            </div>
+          )
+          
+        }) : <p>No todos yet</p>}
+      
+      </div>
+      </>
+
   )
 }
 export default App;
