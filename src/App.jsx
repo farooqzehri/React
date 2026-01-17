@@ -36,13 +36,16 @@ function App(){
     console.log(discription);
     
     
-    todo.push(title , discription)
+    todo.push({title , discription})
+    settodos([...todo])
+    setdiscription('')
+    settitle('')
   }
   return (
     <div>
-      <form >
-      <input type="text" value={title} placeholder="Enter the title" />
-      <input type="text" value={discription} placeholder="Enter the discription" />
+      <form onSubmit={addtodo}>
+      <input type="text" value={title} onChange={(e) => settitle(e.target.value)} placeholder="Enter the title" />
+      <input type="text" onChange={(e) => setdiscription(e.target.value)} value={discription} placeholder="Enter the discription" />
       <button>add Todo</button>        
       </form>
     </div>
