@@ -42,7 +42,7 @@ function App(){
     settitle('')
   }
   const edittodo = (index) => {
-    const newtitle = prompt("Enter the new title")
+    const newtitle = prompt("Enter the updated title")
     todo[index].title = newtitle
     settodos([...todo])
   }
