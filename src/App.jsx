@@ -57,7 +57,7 @@ function App(){
       <div>
         {todo.length > 0 ? todo.map((item , index) => {
           return (
-            <div key={index} style={{border : '1px solid black' , margin : '10px' , padding : '10px'}}>
+            <div key={index} style={{border : '1px solid black' , margin : '11px' , padding : '11px'}}>
               <h2>{item.title}</h2>
               <p>{item.discription}</p>
               <button onClick={() => {
