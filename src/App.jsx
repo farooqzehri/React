@@ -64,7 +64,7 @@ function App(){
                 const newtodos = todo.filter((todoitem , idx) => idx !== index)
                 settodos(newtodos)
               }}>Delete</button>
-              <button onClick={() => edittodo(index)}>edit</button>
+              <button onClick={() => edittodo(index)}>Edit</button>
 
             </div>
           )
