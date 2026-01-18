@@ -69,7 +69,7 @@ function App(){
             </div>
           )
           
-        }) : <p>No todos yet</p>}
+        }) : <p>No todos yet..</p>}
       
       </div>
       </>
